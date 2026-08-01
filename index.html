@@ -7,138 +7,149 @@
 <meta name="description" content="Instalación de domótica sin obra. Controlá luces, aire acondicionado y más con Alexa y Google Home. Presupuestá online.">
 <style>
   /* ====================================================================
-     CONFIG RÁPIDA: cambiá estos colores si querés otra identidad
+     CONFIG DE COLORES — bordó + negro sobre blanco
      ==================================================================== */
   :root{
-    --bg:#0c1118; --bg2:#111826; --card:#151d2b; --card2:#1b2534;
-    --line:#25324a; --txt:#e8edf5; --muted:#93a1b8;
-    --brand:#2dd4a7; --brand2:#22b3d6; --accent:#f5c451;
-    --danger:#f2685f; --radius:16px;
-    --maxw:1080px; --font:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+    --bg:#ffffff; --bg2:#f7f4f5; --card:#ffffff; --card2:#f6f1f2;
+    --line:#e4dcde; --line2:#d8ced1;
+    --txt:#161213; --muted:#6d6367;
+    --bordo:#7a1f2b; --bordo-dk:#5d1620; --bordo-soft:#f3e7ea;
+    --wa:#2f9e54;
+    --radius:12px; --maxw:1080px;
+    --font:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--txt);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--txt);font-family:var(--font);line-height:1.55}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-  .brandgrad{background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .bordo{color:var(--bordo)}
 
   /* NAV */
-  header{position:sticky;top:0;z-index:50;background:rgba(12,17,24,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
-  .logo span{font-size:1.4rem}
+  header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;letter-spacing:-.01em;color:var(--txt)}
+  .logo svg{display:block}
   .nav-links{display:flex;gap:26px;font-size:.95rem;color:var(--muted)}
-  .nav-links a:hover{color:var(--txt)}
-  .btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-weight:700;font-size:.95rem;padding:11px 20px;border-radius:999px;transition:.15s;font-family:var(--font)}
-  .btn-wa{background:#25d366;color:#04240f}
-  .btn-wa:hover{filter:brightness(1.08);transform:translateY(-1px)}
-  .btn-ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}
-  .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand2));color:#04241d}
-  .btn-primary:hover{filter:brightness(1.07);transform:translateY(-1px)}
+  .nav-links a:hover{color:var(--bordo)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-weight:700;font-size:.95rem;padding:11px 20px;border-radius:8px;transition:background .15s,color .15s;font-family:var(--font)}
+  .btn-wa{background:var(--wa);color:#fff}
+  .btn-wa:hover{background:#268045}
+  .btn-ghost{background:#fff;border:1px solid var(--line2);color:var(--txt)}
+  .btn-ghost:hover{border-color:var(--bordo);color:var(--bordo)}
+  .btn-primary{background:var(--bordo);color:#fff}
+  .btn-primary:hover{background:var(--bordo-dk)}
   @media(max-width:720px){.nav-links{display:none}}
 
   /* HERO */
-  .hero{position:relative;padding:70px 0 60px;text-align:center;overflow:hidden}
-  .hero::before{content:"";position:absolute;inset:0;background:
-    radial-gradient(600px 300px at 50% -10%,rgba(45,212,167,.18),transparent 70%),
-    radial-gradient(500px 300px at 80% 20%,rgba(34,179,214,.12),transparent 70%);pointer-events:none}
-  .hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;letter-spacing:-.03em;font-weight:800;margin-bottom:18px}
-  .hero p{color:var(--muted);font-size:1.15rem;max-width:640px;margin:0 auto 30px}
-  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:34px}
-  .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.85rem;color:var(--muted)}
-  .chip b{color:var(--brand)}
+  .hero{padding:64px 0 54px;text-align:center;background:var(--bg2);border-bottom:1px solid var(--line)}
+  .hero h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.1;letter-spacing:-.02em;font-weight:800;margin-bottom:18px;color:var(--txt)}
+  .hero h1 .bordo{color:var(--bordo)}
+  .hero p{color:var(--muted);font-size:1.12rem;max-width:640px;margin:0 auto 30px}
+  .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .chip{background:#fff;border:1px solid var(--line2);border-radius:6px;padding:8px 15px;font-size:.85rem;color:var(--muted)}
+  .chip b{color:var(--bordo)}
 
   /* SECTIONS */
   section{padding:56px 0}
   .sec-head{text-align:center;margin-bottom:38px}
-  .sec-head h2{font-size:1.9rem;letter-spacing:-.02em;margin-bottom:8px}
+  .sec-head h2{font-size:1.85rem;letter-spacing:-.02em;margin-bottom:8px;color:var(--txt)}
   .sec-head p{color:var(--muted)}
-  .eyebrow{color:var(--brand);font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .eyebrow{color:var(--bordo);font-weight:700;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:10px}
 
   /* FEATURES */
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   @media(max-width:820px){.grid3{grid-template-columns:1fr}}
-  .feat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-  .feat .ic{font-size:1.8rem;margin-bottom:12px}
-  .feat h3{font-size:1.1rem;margin-bottom:6px}
-  .feat p{color:var(--muted);font-size:.95rem}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .feat .ic{font-size:1.7rem;margin-bottom:12px}
+  .feat h3{font-size:1.08rem;margin-bottom:6px;color:var(--bordo)}
+  .feat p{color:var(--muted);font-size:.94rem}
 
   /* PRESUPUESTADOR */
-  .quoter{background:linear-gradient(180deg,var(--bg2),var(--bg))}
-  .quoter-grid{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start}
+  .quoter{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .quoter-grid{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
   @media(max-width:900px){.quoter-grid{grid-template-columns:1fr}}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-  .panel h3{font-size:1.05rem;margin-bottom:4px}
+  .panel h3{font-size:1.05rem;margin-bottom:4px;color:var(--txt)}
   .panel .hint{color:var(--muted);font-size:.85rem;margin-bottom:18px}
 
-  /* Paquetes */
-  .pkgs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px}
+  /* Paquetes (pills opacos, planos) */
+  .pkgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   @media(max-width:560px){.pkgs{grid-template-columns:1fr}}
-  .pkg{position:relative;border:1.5px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:.15s;background:var(--card2)}
-  .pkg:hover{border-color:var(--brand)}
-  .pkg.active{border-color:var(--brand);box-shadow:0 0 0 3px rgba(45,212,167,.15)}
+  .pkg{position:relative;border:1px solid var(--line2);border-radius:10px;padding:16px;cursor:pointer;background:var(--card2);transition:border-color .15s,background .15s}
+  .pkg:hover{border-color:var(--bordo)}
+  .pkg.active{border-color:var(--bordo);background:var(--bordo-soft)}
   .pkg input{position:absolute;opacity:0}
-  .pkg .name{font-weight:700;font-size:.98rem}
-  .pkg .price{color:var(--brand);font-weight:800;margin:6px 0 4px}
+  .pkg .name{font-weight:700;font-size:.98rem;color:var(--txt)}
+  .pkg .price{color:var(--bordo);font-weight:800;margin:6px 0 4px}
   .pkg .desc{color:var(--muted);font-size:.82rem}
-  .pkg .badge{position:absolute;top:-9px;right:12px;background:var(--accent);color:#241c00;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:999px}
+  .pkg .badge{position:absolute;top:-9px;right:12px;background:var(--bordo);color:#fff;font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:5px}
 
-  /* Productos sueltos */
-  .items{margin-top:8px}
+  /* Productos */
+  .items{margin-top:2px}
   .item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
   .item:last-child{border-bottom:none}
   .item .info{flex:1}
-  .item .info .t{font-weight:600;font-size:.95rem}
+  .item .info .t{font-weight:600;font-size:.95rem;color:var(--txt)}
   .item .info .p{color:var(--muted);font-size:.82rem}
-  .qty{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:9px;overflow:hidden}
-  .qty button{width:32px;height:32px;background:var(--card2);border:none;color:var(--txt);font-size:1.1rem;cursor:pointer;transition:.1s}
-  .qty button:hover{background:var(--brand);color:#04241d}
-  .qty input{width:38px;height:32px;text-align:center;background:transparent;border:none;color:var(--txt);font-size:.95rem;font-weight:700;-moz-appearance:textfield}
+  .qty{display:flex;align-items:center;border:1px solid var(--line2);border-radius:8px;overflow:hidden}
+  .qty button{width:32px;height:32px;background:var(--card2);border:none;color:var(--bordo);font-size:1.1rem;font-weight:700;cursor:pointer;transition:background .1s,color .1s}
+  .qty button:hover{background:var(--bordo);color:#fff}
+  .qty input{width:38px;height:32px;text-align:center;background:#fff;border:none;color:var(--txt);font-size:.95rem;font-weight:700;-moz-appearance:textfield}
   .qty input::-webkit-outer-spin-button,.qty input::-webkit-inner-spin-button{-webkit-appearance:none}
 
-  .toggle{display:flex;align-items:center;gap:12px;margin-top:16px;padding:14px;background:var(--card2);border-radius:11px;cursor:pointer;border:1px solid var(--line)}
-  .toggle input{width:20px;height:20px;accent-color:var(--brand)}
-  .toggle .tt{font-weight:600;font-size:.93rem}
+  .toggle{display:flex;align-items:center;gap:12px;margin-top:16px;padding:14px;background:var(--card2);border-radius:9px;cursor:pointer;border:1px solid var(--line2)}
+  .toggle input{width:19px;height:19px;accent-color:var(--bordo)}
+  .toggle .tt{font-weight:600;font-size:.93rem;color:var(--txt)}
   .toggle .td{color:var(--muted);font-size:.82rem}
 
-  /* Resumen sticky */
-  .summary{position:sticky;top:84px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-  .summary h3{font-size:1.05rem;margin-bottom:14px}
-  .sum-lines{font-size:.9rem;max-height:230px;overflow-y:auto;margin-bottom:14px}
+  /* Resumen */
+  .summary{position:sticky;top:86px;background:var(--card);border:1px solid var(--line2);border-radius:var(--radius);padding:22px}
+  .summary h3{font-size:1.05rem;margin-bottom:14px;color:var(--txt)}
+  .sum-lines{font-size:.9rem;max-height:230px;overflow-y:auto;margin-bottom:12px}
   .sum-lines .row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);color:var(--muted)}
   .sum-lines .row span:last-child{color:var(--txt);font-weight:600;white-space:nowrap}
   .sum-empty{color:var(--muted);font-size:.88rem;text-align:center;padding:24px 0}
-  .total{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:2px solid var(--line);margin-bottom:6px}
+  .total{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-top:2px solid var(--line2);margin-bottom:4px}
   .total .lbl{font-size:.9rem;color:var(--muted)}
-  .total .val{font-size:1.9rem;font-weight:800}
-  .total .val small{font-size:.9rem;color:var(--muted);font-weight:600}
+  .total .val{font-size:1.8rem;font-weight:800;color:var(--bordo)}
   .note{font-size:.75rem;color:var(--muted);margin:10px 0 16px;line-height:1.4}
   .summary .btn-wa{width:100%;justify-content:center;font-size:1rem;padding:14px}
 
   /* STEPS */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
   @media(max-width:820px){.steps{grid-template-columns:1fr}}
   .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:relative}
-  .step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:linear-gradient(90deg,var(--brand),var(--brand2));color:#04241d;font-weight:800;margin-bottom:14px}
-  .step h3{font-size:1.05rem;margin-bottom:6px}
-  .step p{color:var(--muted);font-size:.93rem}
+  .step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--bordo);color:#fff;font-weight:800;margin-bottom:14px}
+  .step h3{font-size:1.03rem;margin-bottom:6px;color:var(--txt)}
+  .step p{color:var(--muted);font-size:.92rem}
 
   /* FOOTER */
-  footer{border-top:1px solid var(--line);padding:36px 0;text-align:center;color:var(--muted);font-size:.9rem}
-  footer .logo{margin-bottom:8px;color:var(--txt)}
+  footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--muted);font-size:.9rem;background:var(--bg2)}
+  footer .logo{justify-content:center;margin-bottom:8px}
   .foot-links{display:flex;gap:20px;justify-content:center;margin:12px 0}
-  .foot-links a:hover{color:var(--brand)}
+  .foot-links a:hover{color:var(--bordo)}
 </style>
 </head>
 <body>
+
+<!-- LOGO reutilizable: casa + señal de automatización (bordó) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="domoLogo" viewBox="0 0 48 48">
+    <path d="M6 22 L24 7 L42 22" fill="none" stroke="#7a1f2b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10 20 V40 H38 V20" fill="none" stroke="#7a1f2b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="30" r="2.6" fill="#7a1f2b"/>
+    <path d="M18.5 26.5 a7 7 0 0 1 11 0" fill="none" stroke="#7a1f2b" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M15 23.5 a11 11 0 0 1 18 0" fill="none" stroke="#7a1f2b" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
+  </symbol>
+</svg>
 
 <!-- ==================== NAV ==================== -->
 <header>
   <div class="wrap">
     <nav>
-      <div class="logo"><span>🏠</span> Domótica<span class="brandgrad">AR</span></div>
+      <div class="logo"><svg width="30" height="30"><use href="#domoLogo"/></svg> Domótica<span class="bordo">AR</span></div>
       <div class="nav-links">
         <a href="#servicios">Servicios</a>
         <a href="#presupuesto">Presupuestá</a>
@@ -152,7 +163,7 @@
 <!-- ==================== HERO ==================== -->
 <div class="hero">
   <div class="wrap">
-    <h1>Tu casa <span class="brandgrad">inteligente</span><br>sin romper una pared</h1>
+    <h1>Tu casa <span class="bordo">inteligente</span><br>sin romper una pared</h1>
     <p>Controlá luces, aire acondicionado y más con tu voz — Alexa y Google Home. Instalamos en el día, sin obra. Presupuestá online en 1 minuto.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#presupuesto">Armá tu presupuesto →</a>
@@ -192,15 +203,15 @@
     <div class="sec-head">
       <div class="eyebrow">Presupuestador online</div>
       <h2>Armá tu casa inteligente</h2>
-      <p>Elegí un paquete base y sumá lo que quieras. El total se arma solo.</p>
+      <p>Elegí un kit según tu ambiente y sumá lo que quieras. El total se arma solo.</p>
     </div>
 
     <div class="quoter-grid">
-      <!-- IZQUIERDA: selección -->
+      <!-- IZQUIERDA -->
       <div>
         <div class="panel" style="margin-bottom:20px">
-          <h3>1 · Elegí un paquete base</h3>
-          <p class="hint">Combos pensados según el tamaño. Después le sumás extras.</p>
+          <h3>1 · Elegí tu kit</h3>
+          <p class="hint">Según el tamaño de tu casa. Después le sumás extras.</p>
           <div class="pkgs" id="pkgs"></div>
         </div>
 
@@ -219,11 +230,11 @@
         </div>
       </div>
 
-      <!-- DERECHA: resumen -->
+      <!-- DERECHA -->
       <div class="summary">
         <h3>Tu presupuesto</h3>
         <div class="sum-lines" id="sumLines">
-          <div class="sum-empty">Elegí un paquete o productos para ver el total 👆</div>
+          <div class="sum-empty">Elegí un kit o productos para ver el total 👆</div>
         </div>
         <div class="total">
           <span class="lbl">Total estimado</span>
@@ -231,9 +242,9 @@
         </div>
         <div class="total" style="border:none;padding:0;margin:0">
           <span class="lbl">Aprox. en pesos</span>
-          <span class="val" style="font-size:1.1rem" id="totalArs">$0</span>
+          <span class="val" style="font-size:1.05rem;color:var(--txt)" id="totalArs">$0</span>
         </div>
-        <p class="note">Precios de referencia en USD. El valor final se confirma según el relevamiento de tu casa. * Cotización orientativa, no incluye casos especiales.</p>
+        <p class="note">Precios de referencia en USD. El valor final se confirma según el relevamiento de tu casa. Cotización orientativa.</p>
         <button class="btn btn-wa" id="waBtn" onclick="enviarWhatsApp()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1.1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
           Pedir presupuesto por WhatsApp
@@ -261,7 +272,7 @@
 <!-- ==================== FOOTER ==================== -->
 <footer>
   <div class="wrap">
-    <div class="logo"><span>🏠</span> Domótica<span class="brandgrad">AR</span></div>
+    <div class="logo"><svg width="26" height="26"><use href="#domoLogo"/></svg> Domótica<span class="bordo">AR</span></div>
     <div class="foot-links">
       <a href="#servicios">Servicios</a>
       <a href="#presupuesto">Presupuestá</a>
@@ -277,17 +288,17 @@
    ⚙️  CONFIGURACIÓN — EDITÁ SOLO ESTO
    ====================================================================== */
 const CONFIG = {
-  whatsapp: "5491100000000",   // ⬅️ Tu número con código país, SIN + ni espacios. Ej Arg: 54911XXXXXXXX
-  dolar: 1300,                 // ⬅️ Valor del dólar para mostrar el aprox en pesos (actualizalo)
+  whatsapp: "5491133025681",   // ⬅️ Tu número con código país, SIN + ni espacios. Ej: 54911XXXXXXXX
+  dolar: 1300,                 // ⬅️ Valor del dólar para el aprox en pesos
   moneda: "USD"
 };
 
-// Paquetes base (precio "desde" en USD). Editá nombres, precios y descripciones.
+// Kits base (precio "desde" en USD).
 const PAQUETES = [
-  { id:"ninguno", nombre:"Sin paquete",  precio:0,   desc:"Armo todo con productos sueltos.", badge:"" },
-  { id:"inicial", nombre:"Kit Inicial",  precio:120, desc:"Echo Dot + control de aire + 2 enchufes + 1 lámpara.", badge:"Más elegido" },
-  { id:"depto",   nombre:"Depto Smart",  precio:320, desc:"Ideal 2-3 amb: 2 aires, 4 enchufes, 3 luces, 1 sensor.", badge:"" },
-  { id:"casa",    nombre:"Casa Full",    precio:700, desc:"Casa entera: aires, llaves, sensores, cámara y voz.", badge:"" },
+  { id:"mono",  nombre:"Monoambiente",   precio:120, desc:"1 ambiente: Alexa + control de aire + 2 enchufes + 1 luz.", badge:"Más elegido" },
+  { id:"dos",   nombre:"Dos ambientes",  precio:230, desc:"2 aires, 3 enchufes, 2 luces y 1 sensor. Todo por voz.", badge:"" },
+  { id:"tres",  nombre:"Tres ambientes", precio:340, desc:"3 aires, llaves de luz, sensores y configuración completa.", badge:"" },
+  { id:"custom",nombre:"Personalizada",  precio:0,   desc:"Armás todo a medida solo con productos sueltos.", badge:"" },
 ];
 
 // Productos sueltos (precio "desde" en USD por unidad).
@@ -305,26 +316,24 @@ const PRODUCTOS = [
   { id:"cortina",  nombre:"Motor para cortina",            precio:90 },
 ];
 
-const INSTALACION = { nombre:"Instalación y configuración", precio:50 }; // USD "desde"
+const INSTALACION = { nombre:"Instalación y configuración", precio:50 };
 /* ====================================================================== */
 
-// ---- Estado ----
-let paqueteSel = "ninguno";
+let paqueteSel = "custom";
 const cant = {};
 PRODUCTOS.forEach(p => cant[p.id] = 0);
 let conInstalacion = false;
 
-// ---- Render paquetes ----
+// Render kits
 const pkgsEl = document.getElementById("pkgs");
-PAQUETES.forEach((pk,i) => {
+PAQUETES.forEach(pk => {
   const el = document.createElement("label");
   el.className = "pkg" + (pk.id===paqueteSel ? " active":"");
-  el.dataset.id = pk.id;
   el.innerHTML = `
     ${pk.badge ? `<div class="badge">${pk.badge}</div>`:""}
     <input type="radio" name="pkg" ${pk.id===paqueteSel?"checked":""}>
     <div class="name">${pk.nombre}</div>
-    <div class="price">${pk.precio>0 ? "desde USD "+pk.precio : "—"}</div>
+    <div class="price">${pk.precio>0 ? "desde USD "+pk.precio : "a medida"}</div>
     <div class="desc">${pk.desc}</div>`;
   el.addEventListener("click", () => {
     paqueteSel = pk.id;
@@ -336,7 +345,7 @@ PAQUETES.forEach((pk,i) => {
   pkgsEl.appendChild(el);
 });
 
-// ---- Render productos ----
+// Render productos
 const itemsEl = document.getElementById("items");
 PRODUCTOS.forEach(p => {
   const el = document.createElement("div");
@@ -347,9 +356,9 @@ PRODUCTOS.forEach(p => {
       <div class="p">desde USD ${p.precio} c/u</div>
     </div>
     <div class="qty">
-      <button aria-label="menos" data-a="-" data-id="${p.id}">−</button>
+      <button data-a="-" data-id="${p.id}">−</button>
       <input type="number" min="0" value="0" id="q_${p.id}" readonly>
-      <button aria-label="más" data-a="+" data-id="${p.id}">+</button>
+      <button data-a="+" data-id="${p.id}">+</button>
     </div>`;
   itemsEl.appendChild(el);
 });
@@ -361,16 +370,14 @@ itemsEl.addEventListener("click", e => {
   recalcular();
 });
 
-// ---- Instalación ----
 document.getElementById("instalacion").addEventListener("change", e => {
   conInstalacion = e.target.checked; recalcular();
 });
 
-// ---- Cálculo ----
 function detalle(){
   const lineas = [];
   const pk = PAQUETES.find(p=>p.id===paqueteSel);
-  if(pk && pk.precio>0) lineas.push({t:pk.nombre, q:1, sub:pk.precio});
+  if(pk && pk.precio>0) lineas.push({t:"Kit "+pk.nombre, q:1, sub:pk.precio});
   PRODUCTOS.forEach(p=>{ if(cant[p.id]>0) lineas.push({t:p.nombre, q:cant[p.id], sub:p.precio*cant[p.id]}); });
   if(conInstalacion) lineas.push({t:INSTALACION.nombre, q:1, sub:INSTALACION.precio});
   return lineas;
@@ -380,22 +387,21 @@ function recalcular(){
   const total = lineas.reduce((a,l)=>a+l.sub,0);
   const cont = document.getElementById("sumLines");
   if(lineas.length===0){
-    cont.innerHTML = `<div class="sum-empty">Elegí un paquete o productos para ver el total 👆</div>`;
+    cont.innerHTML = `<div class="sum-empty">Elegí un kit o productos para ver el total 👆</div>`;
   } else {
     cont.innerHTML = lineas.map(l=>`<div class="row"><span>${l.t}${l.q>1?` ×${l.q}`:""}</span><span>USD ${l.sub}</span></div>`).join("");
   }
-  document.getElementById("total").innerHTML = `USD ${total}`;
-  document.getElementById("totalArs").innerHTML = "$" + (total*CONFIG.dolar).toLocaleString("es-AR");
+  document.getElementById("total").textContent = `USD ${total}`;
+  document.getElementById("totalArs").textContent = "$" + (total*CONFIG.dolar).toLocaleString("es-AR");
 }
 
-// ---- WhatsApp ----
 function enviarWhatsApp(){
   const lineas = detalle();
-  if(lineas.length===0){ alert("Elegí al menos un paquete o producto para armar tu presupuesto 🙂"); return; }
+  if(lineas.length===0){ alert("Elegí al menos un kit o producto para armar tu presupuesto 🙂"); return; }
   const total = lineas.reduce((a,l)=>a+l.sub,0);
-  let msg = "¡Hola! Quiero presupuestar mi casa inteligente 🏠\\n\\n";
-  lineas.forEach(l => msg += `• ${l.t}${l.q>1?` (x${l.q})`:""} — USD ${l.sub}\\n`);
-  msg += `\\nTotal estimado: USD ${total} (aprox $${(total*CONFIG.dolar).toLocaleString("es-AR")})\\n\\n¿Coordinamos una visita?`;
+  let msg = "¡Hola! Quiero presupuestar mi casa inteligente 🏠\n\n";
+  lineas.forEach(l => msg += `• ${l.t}${l.q>1?` (x${l.q})`:""} — USD ${l.sub}\n`);
+  msg += `\nTotal estimado: USD ${total} (aprox $${(total*CONFIG.dolar).toLocaleString("es-AR")})\n\n¿Coordinamos una visita?`;
   window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank");
 }
 document.getElementById("waFoot").href = `https://wa.me/${CONFIG.whatsapp}`;
@@ -403,4 +409,3 @@ document.getElementById("waFoot").href = `https://wa.me/${CONFIG.whatsapp}`;
 recalcular();
 </script>
 </body>
-</html>
