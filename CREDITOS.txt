@@ -1,0 +1,24 @@
+CRÉDITOS DE IMÁGENES (Openverse / Creative Commons)
+====================================================
+
+Sin atribución requerida (dominio público / CC0):
+  - alexa.jpg          (PDM - dominio público)
+  - sonoff-mini.jpg    (PDM - dominio público)
+  - lampara-rgb.jpg    (CC0)
+  - tira-led.jpg       (CC0)
+  - control-ir.jpg     (CC0)
+  - camara.jpg         (CC0)
+
+Requieren crédito si las usás (CC BY / CC BY-SA):
+  - sonoff-pir.jpg     "PIR Motion Sensor-Sensinova (SN-PR11)" por Versatile Techno — CC BY-SA 4.0
+  - motor-cortina.jpg  "Ocean View Jr Suite" por toddwight1 — CC BY 2.0
+  - cerradura.jpg      Imagen de cerradura inteligente — CC BY (vía Openverse, búsqueda "smart lock door")
+  - sonoff-bridge.jpg  Imagen de smart home hub — CC BY-SA (vía Openverse, búsqueda "smart home hub")
+
+SIN FOTO (quedan con ícono placeholder, conviene reemplazar por foto real):
+  - sonoff-plug.jpg    (enchufe inteligente)
+  - sonoff-pow.jpg     (medidor de consumo)
+  - sonoff-door.jpg    (sensor de apertura)
+
+Recomendación: estas imágenes CC son un relleno temporal. Para el catálogo
+definitivo, reemplazá por las fotos reales de tu proveedor (mismo nombre de archivo).
